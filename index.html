@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e488acc005.js" crossorigin="anonymous"></script>
+    <title>Youtube</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #navbar{
+          display: flex;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+            /* gap: 11px; */
+            padding: 0px 0px 0px 8px;
+            margin-bottom: 8px;
+           position: sticky;
+           top: 0;
+           background-color: #ffff;
+        }
+        #logo{
+            display: flex;
+            /* border: 1px solid black; */
+            align-items: center;
+            justify-content: space-around;
+            width: 16%;
+            margin-right: 8.5%;
+            
+        }
+        #logo>div{
+           width: 58%;
+           display: flex;
+           align-items: center;
+           /* border: 1px solid black; */
+
+        }
+        #line{
+            width: 25%!important;
+        }
+        #logo>div>img{
+           width: 100%;
+
+        }
+        .fa-align-justify{
+            font-size: 24px;
+        }
+        #srch-bar{
+            display: flex;
+            /* border: 1px solid black; */
+            align-items: center;
+           
+            width: 53%;
+            margin-right: 3%;
+      
+        }
+        #input-cont{
+       width: 80%;
+       border: 1px solid grey;
+       margin-right: 1px;
+       margin: auto;
+       padding: 0;
+    
+        }
+        #input-cont+div{
+            /* border: 1px solid rgb(218, 32, 32); */
+            width: 9%;
+           
+          
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          
+            border-radius: 40%;
+            height: 30px;
+            background-color: rgba(241, 234, 234, 0.445);
+           
+          
+          
+        }
+        #input-cont+div>i{
+            font-size: 22px;
+        }
+        #form{
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+        #query{
+            width: 85%;
+            padding: 14px 5px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        #query:focus{
+            border: 1px solid rgb(24, 161, 240);
+            width: 100%;
+        }
+        #search{
+            padding: 14px 22px;
+            border: 1px solid rgba(128, 128, 128, 0.781);
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+          
+        }
+        #search:hover{
+            cursor: pointer;
+            background-color: rgb(194, 190, 190);
+        }
+        #search>i{
+            font-size: 18px;
+           
+        }
+        #othr-logo{
+            width: 20%;
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        #othr-logo>div>i{
+            font-size: 18px;
+        }
+        #cont{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 30px;
+            width: 99%;
+            /* border: 1px solid black; */
+            margin: auto;
+           
+        }
+        #cont>div>img{
+            width: 100%;
+        }
+        #cont>div:hover{
+            cursor: pointer;
+         
+        }
+        .populr{
+            width: 99%;
+            margin: auto;
+            margin-bottom: 9px;
+         
+          
+        }
+         .populr>div{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width: 10%;
+             height: 30px;
+            border: 1px solid grey;
+            border-radius: 40px;
+            background-color: rgb(83, 80, 80);
+            
+        } 
+        .populr>div>h3{
+            color: #ffff;
+        }
+        .off{
+            display: none;
+        }
+        @media all and (min-width:100px) and (max-width:740px){
+            #cont{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap: 30px;
+            width: 99%;
+            /* border: 1px solid black; */
+            margin: auto;
+           
+        }
+
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="logo">
+            <div id="line"><i class="fa-solid fa-align-justify"></i></div>
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/YOUTUBE_LOGO.png" alt=""></div>
+        </div>
+       
+
+        <div id="srch-bar">
+            <div id="input-cont">
+                 <form id="form">
+                <input id="query" type="text" placeholder="Search"/>
+                <button id="search"><i class="fa-solid fa-magnifying-glass"></i> </button>               
+            </form>
+        </div>
+        <div>
+            <i class="fa-solid fa-microphone"></i>
+        </div>          
+    </div>
+
+        <div id="othr-logo">
+            <div><i class="fa-solid fa-video"></i></div>
+            <div><i class="fa-solid fa-align-left"></i></div>
+            <div><i class="fa-solid fa-bell"></i></div>
+            <div><i class="fa-solid fa-user"></i></div>
+
+        </div>
+    </div>
+    
+    <div class="populr">
+      <div><h3> Popular</h3></div> 
+     </div>
+    <div id="cont"></div>
+    
+</body>
+</html>
+<script>
+    let youtub_key=`AIzaSyBHBF-iMZbk26vMzpvkN3h50Iqz5cee6io`;
+   // https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=[YOUR_API_KEY]'
+ 
+    let popular = async()=>{
+    
+ let url=`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=28&regionCode=IN&key=${youtub_key}`;
+      try {
+          let res =await fetch(url);
+          let data=await res.json()
+        appendpop(data.items)
+          console.log(data)
+      } catch (error) {
+          console.log(error)
+          
+      }
+        
+  
+    }
+    popular();
+    
+    let appendpop= (data)=>{
+         console.log("hello")
+         document.querySelector("#cont").innerHTML=null;
+    let cont=document.querySelector("#cont");
+
+        data.forEach(({id,snippet:{title,thumbnails:{medium:{url}}}})=>{
+            let div=document.createElement("div");
+        let img=document.createElement("img");
+       img.src=url;
+        let h3=document.createElement("h3");
+        h3.innerText=title;
+        div.append(img,h3);
+        div.addEventListener("click",()=>{
+            play(id)
+            console.log("hello")
+        })
+        cont.append(div)
+           // console.log(url)
+           
+           
+           
+        });
+
+     };
+
+
+
+
+
+                                                // By Search
+    
+
+     let form=document.querySelector("#form");
+     form.addEventListener("submit",()=>{
+         event.preventDefault();
+         let query=form.query.value;
+         console.log(query)
+        getdata(query)
+     });
+
+     let getdata= async(query)=>{
+        let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=${youtub_key}`;
+         try {
+             let res=await fetch(url);
+             let data=await res.json()
+             console.log(data.items)
+             append(data.items)
+             
+         } catch (error) {
+             
+         }
+     }
+
+     let append= (data)=>{
+         console.log("hello")
+         document.querySelector("#cont").innerHTML=null;
+         document.querySelector(".populr").classList.add("off")
+    let cont=document.querySelector("#cont");
+
+        data.forEach(({id:{videoId},snippet:{title,thumbnails:{medium:{url}}}})=>{
+            let div=document.createElement("div");
+        let img=document.createElement("img");
+       img.src=url;
+        let h3=document.createElement("h3");
+        h3.innerText=title;
+        div.append(img,h3);
+        div.addEventListener("click",()=>{
+            play(videoId,)
+            console.log("hello")
+        })
+        cont.append(div)
+           // console.log(url)
+           
+           
+           
+        });
+
+     };
+     let play=(id)=>{
+         console.log(id)
+         localStorage.setItem("video",JSON.stringify(id));
+         window.location.href=`video.html`
+     }
+   
+
+  
+
+</script>
